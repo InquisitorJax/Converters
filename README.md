@@ -1,6 +1,10 @@
 # Xamarin.Forms Community Toolkit: Converters
 Value converters for Xamarin.Forms
 
+### Build status:
+* [![Build status](https://ci.appveyor.com/api/projects/status/a2a4mah2fk8xicm7/branch/master?svg=true)](https://ci.appveyor.com/project/FormsCommunityToolkit/converters/branch/master)
+* Private NuGet Feed: https://ci.appveyor.com/nuget/fct-converters
+
 ### Available Converters
 These are the current value converters available in the toolkit
 
