@@ -124,3 +124,20 @@ Uppercases the text given.
 	<Label Text="{Binding Name, Converter={StaticResource UpperTextConverter}}">
 </ContentPage>
 ```
+#### ByteArrayToImageSourceConverter
+Converts an image byte array to an ImageSource for Image Binding. 
+Optionally set the parameter to a filler icon if the byte array is empty
+
+```xaml
+<ContentPage 
+   xmlns:toolkit="clr-namespace:FormsCommunityToolkit.Converters;assembly=FormsCommunityToolkit.Converters">
+    <ContentPage.Resources>
+     <ResourceDictionary>
+        <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter"/>
+     </ResourceDictionary>
+    </ContentPage.Resources>
+
+	<Image Source="{Binding Image, Converter={StaticResource ByteArrayToImageSourceConverter}, ConverterParameter=fillericon}" />
+	
+</ContentPage>
+```

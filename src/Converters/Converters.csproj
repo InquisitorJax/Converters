@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BooleanToObjectConverter.cs" />
+    <Compile Include="ByteArrayToImageSourceConverter.cs" />
     <Compile Include="HasDataConverter.cs" />
     <Compile Include="HexToColorConverter.cs" />
     <Compile Include="InvertedBooleanConverter.cs" />

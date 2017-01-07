@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanToObjectTests.cs" />
+    <Compile Include="ByteArrayToImageSourceTests.cs" />
     <Compile Include="HasDataTests.cs" />
     <Compile Include="HexToColorTests.cs" />
     <Compile Include="InvertedBooleanTests.cs" />
