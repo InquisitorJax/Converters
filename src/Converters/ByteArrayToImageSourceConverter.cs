@@ -1,6 +1,6 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.IO;
+using Xamarin.Forms;
 
 namespace FormsCommunityToolkit.Converters
 {
@@ -29,26 +29,44 @@ namespace FormsCommunityToolkit.Converters
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value != null)
+            byte[] bytes = value as byte[];
+            if (bytes != null)
             {
-                byte[] bytes = (byte[])value;
-                ImageSource retImageSource = ImageSource.FromStream(() => new MemoryStream(bytes));
-                return retImageSource;
+                try
+                {
+                    ImageSource retImageSource = ImageSource.FromStream(() => new MemoryStream(bytes));
+                    return retImageSource;
+                }
+                catch
+                {
+                    return ResolveDefaultImage(parameter);
+                }
             }
 
-            if (parameter != null)
-            {
-                string fillerIcon = (string)parameter;
-                ImageSource retImageSource = ImageSource.FromFile(fillerIcon);
-                return retImageSource;
-            }
-
-            return null;
+            return ResolveDefaultImage(parameter);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        private object ResolveDefaultImage(object parameter)
+        {
+            string defaultImage = parameter as string;
+            if (defaultImage != null)
+            {
+                try
+                {
+                    ImageSource retImageSource = ImageSource.FromFile(defaultImage);
+                    return retImageSource;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            return null;
         }
 
         #endregion IValueConverter implementation
